@@ -14,7 +14,7 @@
         <title>Carte</title>
     </head>
     <body>
-        <h1>MAP RAYON de 10km autour de soi</h1>
+        <h1>MAP - Centre de vaccination</h1>
         <div id="map">
 	    <!-- Ici s'affichera la carte -->
 	</div>
@@ -54,7 +54,7 @@
 
                 $.getJSON("https://www.data.gouv.fr/fr/datasets/r/d0566522-604d-4af6-be44-a26eefa01756",function( data, textStatus, jqxhr ) {
                     for(let i = 0 ; i < data.features.length ; i++){
-                        L.marker([data.features[i].geometry.coordinates[0][1],data.features[i].geometry.coordinates[0][0]],{title : 'X'}).addTo(macarte);
+                        L.marker([data.features[i].geometry.coordinates[0][1],data.features[i].geometry.coordinates[0][0]],{title : data.features[i].properties.c_nom}).addTo(macarte);
                     }
                 });
             }
